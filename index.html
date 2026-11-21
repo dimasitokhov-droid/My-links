@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -25,8 +26,11 @@ h2{font-size:18px;margin:0;font-weight:650}
 .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .social{background:linear-gradient(145deg,#20212b,#171820);border:1px solid var(--line);border-radius:22px;padding:16px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;min-height:150px;transition:transform .18s,border-color .18s}
 .social:hover{transform:translateY(-3px);border-color:#8270ad}
-.social img,.social .web-icon{width:64px;height:64px;object-fit:cover;border-radius:18px;display:block}
-.web-icon{display:grid;place-items:center;background:linear-gradient(135deg,#6554d9,#258ee5);font-size:30px;font-weight:800}
+.social-icon{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;overflow:hidden;flex-shrink:0}
+.social-icon img{width:100%;height:100%;object-fit:contain;display:block}
+.max-icon{background:#29204a}
+.x-icon{background:#000}
+.margy-icon{background:linear-gradient(135deg,#6554d9,#258ee5);font-size:34px;font-weight:800;color:white}
 .social strong{font-size:14px}
 .social small{color:var(--muted);font-size:12px}
 .events{display:grid;gap:12px}
@@ -66,7 +70,7 @@ textarea{min-height:95px;resize:vertical}
 .wrap{width:min(100% - 22px,760px);padding-top:20px}
 .socials{grid-template-columns:1fr}
 .social{min-height:84px;flex-direction:row;text-align:left;justify-content:flex-start;padding:12px 14px}
-.social img,.social .web-icon{width:54px;height:54px;border-radius:15px}
+.social-icon{width:54px;height:54px;border-radius:15px}
 .social small{display:block;margin-top:4px}
 .hero{padding-bottom:20px}
 .avatar{width:104px;height:104px}
@@ -91,18 +95,26 @@ textarea{min-height:95px;resize:vertical}
 <section class="section">
 <div class="section-head"><h2>Мои каналы</h2><span class="hint">Переход по нажатию</span></div>
 <div class="socials">
+
 <a class="social" href="https://max.ru/join/ltx-0Ti4ZAhtbkHqb95CRsR5qc2rDRRm9P_3T_6VXAY" target="_blank" rel="noopener noreferrer">
-<img src="./max.jpg" alt="MAX">
+<div class="social-icon max-icon">
+<img src="./Max_logo_2025.png" alt="MAX">
+</div>
 <span><strong>Chatly</strong><small>MAX</small></span>
 </a>
+
 <a class="social" href="https://x.com/Chatly_Original" target="_blank" rel="noopener noreferrer">
-<img src="./x.jpg" alt="X">
+<div class="social-icon x-icon">
+<img src="./1795278738441.jpg" alt="X">
+</div>
 <span><strong>Chatly</strong><small>X</small></span>
 </a>
+
 <a class="social" href="https://chat.narez.xyz/u/Chatly" target="_blank" rel="noopener noreferrer">
-<span class="web-icon" aria-hidden="true">C</span>
-<span><strong>Chatly</strong><small>Chatly Web</small></span>
+<div class="social-icon margy-icon" aria-hidden="true">M</div>
+<span><strong>Margy Chat</strong><small>Мой чат</small></span>
 </a>
+
 </div>
 </section>
 
@@ -169,6 +181,7 @@ let unsubscribeEvents = null;
 
 function showModal(el){el.classList.add("show")}
 function hideModal(el){el.classList.remove("show")}
+
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hideModal($(b.dataset.close))));
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)hideModal(m)}));
 
